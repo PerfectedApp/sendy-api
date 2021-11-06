@@ -11,6 +11,7 @@ module.exports = function(url, apiKey) {
 prty = {
     subscribe: function(o, cb) {
 	if (this.paramsOk(o, cb)) {
+	    o.api_key = this.apiKey;
 	    o.list = o.list_id;
 	    delete o.list_id;
 	    this.request('subscribe', o, this.getSub(cb));
@@ -18,6 +19,7 @@ prty = {
     },
     unsubscribe: function(o, cb) {
 	if (this.paramsOk(o, cb)) {
+	    o.api_key = this.apiKey;
 	    o.list = o.list_id;
 	    delete o.list_id;
 	    this.request('unsubscribe', o, this.getSub(cb));
